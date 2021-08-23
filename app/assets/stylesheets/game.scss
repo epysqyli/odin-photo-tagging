@@ -30,18 +30,18 @@ a:active {
     font-weight: bold;
     color: white;
     font-stretch: expanded;
-    padding-top: 5vh;
+    padding-top: 2vh;
   }
 
   .description {
     font-size: 2rem;
-    line-height: 7vh;
     color: whitesmoke;
     border-radius: 10px;
     box-shadow: 0 0 5px 2px white;
     padding: 2vh 5vw 2vh;
-    margin: 4vh 5vw;
+    margin: 2vh auto;
     background-color: rgba(3, 23, 53, 0.5);
+    max-width: 1200px;
 
     p {
       text-align: center;
@@ -62,7 +62,7 @@ a:active {
       justify-content: space-around;
       align-items: center;
       width: 80%;
-      margin: 2vh auto;
+      margin: 3vh auto;
     }
   }
 
@@ -74,7 +74,7 @@ a:active {
     background-color: white;
     border: 1px solid black;
     border-radius: 10px;
-    margin: 3vh auto 0;
+    margin: 2vh auto 0;
     width: fit-content;
     padding: 2vh 4vw;
     cursor: pointer;
