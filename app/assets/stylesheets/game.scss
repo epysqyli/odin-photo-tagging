@@ -79,12 +79,13 @@ a:active {
 
   .container {
     width: 95%;
+    padding-top: 5vh;
     margin: auto;
-    padding: 5vh 0;
-    border: 1px solid red;
 
     img {
       width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
     }
   }
 }
