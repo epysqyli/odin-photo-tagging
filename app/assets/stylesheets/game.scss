@@ -32,7 +32,7 @@ a:active {
     padding-top: 5vh;
   }
 
-  p {
+  .description {
     font-size: 2rem;
     line-height: 7vh;
     color: whitesmoke;
@@ -43,6 +43,21 @@ a:active {
     background-color: rgba(3, 23, 53, 0.5);
   }
 
+  .profile-images {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 35vh;
+    width: 75%;
+    margin: 4vh auto;
+
+    img {
+      width: 30%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
   .btn {
     text-transform: uppercase;
     text-align: center;
@@ -51,7 +66,7 @@ a:active {
     background-color: white;
     border: 1px solid black;
     border-radius: 10px;
-    margin: auto;
+    margin: 3vh auto;
     width: fit-content;
     padding: 2vh 4vw;
     cursor: pointer;
