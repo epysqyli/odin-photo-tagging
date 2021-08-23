@@ -3,6 +3,5 @@ class GameController < ApplicationController
     @sample_user_name = 'elvis'
   end
 
-  def play
-  end
+  def play; end
 end
