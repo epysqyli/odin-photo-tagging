@@ -6,6 +6,9 @@ const Picture = (props) => {
     <div className="picture-container">
       <div className="container">
         <img src={imagePath} alt="waldo picture" />
+        <div className="example">
+          {/* put squares in here */}
+        </div>
       </div>
     </div>
   );
