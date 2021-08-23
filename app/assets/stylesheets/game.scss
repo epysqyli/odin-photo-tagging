@@ -1,7 +1,90 @@
-// Place all the styles related to the Game controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
 
-.default-component {
-  text-align: center;
+body {
+  font-family: "Urbanist", sans-serif;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+// game#home
+.home-container {
+  min-height: 100vh;
+  background: linear-gradient(
+    310deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 112, 121, 1) 61%,
+    rgba(0, 212, 255, 1) 100%
+  );
+
+  .title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-stretch: expanded;
+    padding-top: 5vh;
+  }
+
+  p {
+    font-size: 2rem;
+    line-height: 7vh;
+    color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 2px white;
+    padding: 2vh 5vw 2vh;
+    margin: 8vh 5vw;
+    background-color: rgba(3, 23, 53, 0.5);
+  }
+
+  .btn {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: auto;
+    width: fit-content;
+    padding: 2vh 4vw;
+    cursor: pointer;
+    display: block;
+
+    &:hover {
+      background-color: whitesmoke;
+    }
+
+    &:active {
+      background-color: white;
+    }
+  }
+}
+
+// game#play
+.picture-container {
+  min-height: 100vh;
+  background: linear-gradient(
+    310deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 121, 34, 0.6208858543417367) 61%,
+    rgba(0, 212, 255, 1) 100%
+  );
+
+  .container {
+    width: 95%;
+    margin: auto;
+    padding: 5vh 0;
+    border: 1px solid red;
+
+    img {
+      width: 100%;
+    }
+  }
 }

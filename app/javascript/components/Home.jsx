@@ -4,10 +4,13 @@ const Home = (props) => {
   const username = props.username;
   const gamePath = props.gamePath;
   return (
-    <div className="default-component">
-      <h1>This is the first thing you see on the landing page</h1>
-      <h2>Welcome, {username}. It is time to test your vision skills!</h2>
-      <a href={gamePath}>Play game</a>
+    <div className="home-container">
+      <div className="title">where's waldo?</div>
+      <p>
+        The game that will test your abilities to distinguish Waldo's (and his friends') stupid
+        face among hundreds of seemingly identical faces. What fun!
+      </p>
+      <a className="btn" href={gamePath}>your turn awaits: play now !</a>
     </div>
   );
 };
