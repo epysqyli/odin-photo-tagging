@@ -42,20 +42,17 @@ a:active {
     padding: 2vh 5vw 2vh;
     margin: 4vh 5vw;
     background-color: rgba(3, 23, 53, 0.5);
-  }
 
-  .profile-images {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 30vh;
-    width: 85%;
-    margin: 4vh auto;
-
-    img {
-      width: 30%;
-      height: 100%;
-      object-fit: contain;
+    .characters {
+      img {
+        display: block;
+        width: 75%;
+        margin: 2vh auto;
+        height: 500px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 25px;
+      }
     }
   }
 
