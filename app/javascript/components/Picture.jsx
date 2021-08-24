@@ -2,6 +2,15 @@ import React, { useState, useEffect } from "react";
 import Square from "../components/Square";
 
 const Picture = (props) => {
+  const [showMenu, setShowMenu] = useState({ show: false, squareNumber: null });
+  const [currentSquare, setCurrentSquare] = useState(null);
+
+  const handleClick = (squareNumber) => {
+    console.log(squareNumber);
+    setCurrentSquare(squareNumber);
+    setShowMenu({ show: true, squareNumber });
+  };
+
   const imagePath = props.imagePath;
 
   return (
@@ -10,7 +19,14 @@ const Picture = (props) => {
         <img src={imagePath} alt="waldo picture" />
         <div className="squares-container">
           {[...Array(1160)].map((element, index) => {
-            return <Square key={index} index={index} />;
+            return (
+              <Square
+                key={index}
+                index={index}
+                handleClick={handleClick}
+                showMenu={showMenu}
+              />
+            );
           })}
         </div>
       </div>

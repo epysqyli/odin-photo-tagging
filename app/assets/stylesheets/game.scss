@@ -127,7 +127,6 @@ a:active {
       position: absolute;
       top: 0;
       left: 0;
-      opacity: 0.5;
       z-index: 2;
       display: flex;
       flex-wrap: wrap;
@@ -140,8 +139,31 @@ a:active {
   height: 3.35%;
   width: 2.5%;
   cursor: pointer;
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 10px;
 
   &:hover {
-    background-color: whitesmoke;
+    border: 2px solid black;
+    box-shadow: 0 0 2px 1px black;
+  }
+}
+
+.popup-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background-color: white;
+  border-radius: 25px;
+
+  .character-name {
+    text-align: center;
+    padding: 1vh 2vw;
+    cursor: pointer;
+
+    &:not(div:first-child) {
+      border-top: 1px solid black;
+    }
   }
 }
