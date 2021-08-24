@@ -1,5 +1,6 @@
 class Api::V1::CharactersController < ApplicationController
   before_action :chars, only: :check_move
+  @@found_chars = []
 
   def index
     @characters = Character.all
@@ -9,13 +10,11 @@ class Api::V1::CharactersController < ApplicationController
   def check_move
     @player_choice = { name: params[:name], position: params[:position] }
     if @chars.include?(@player_choice)
-      render json: { message: 'great, you found one' }
-      puts 'yesss'
+      @@found_chars << @player_choice
+      render json: { message: 'great, you found one', found_chars: @@found_chars }
     else
       render json: { message: 'look again!' }
-      puts 'noooo'
     end
-    # render json: @player_choice
   end
 
   private
