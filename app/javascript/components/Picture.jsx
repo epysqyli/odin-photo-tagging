@@ -3,10 +3,8 @@ import Square from "../components/Square";
 
 const Picture = (props) => {
   const [showMenu, setShowMenu] = useState({ show: false, squareNumber: null });
-  const [currentSquare, setCurrentSquare] = useState(null);
 
   const handleClick = (squareNumber) => {
-    setCurrentSquare(squareNumber);
     if (showMenu.show) {
       setShowMenu({ show: false, squareNumber });
     } else {
@@ -14,7 +12,7 @@ const Picture = (props) => {
     }
   };
 
-  const imagePath = props.imagePath;
+  const { imagePath } = props;
 
   return (
     <div className="picture-container">
