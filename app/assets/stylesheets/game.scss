@@ -155,7 +155,7 @@ a:active {
   left: 0;
   z-index: 3;
   background-color: white;
-  border-radius: 25px;
+  box-shadow: 0 0 5px 2px black;
 
   .character-name {
     text-align: center;
@@ -164,6 +164,10 @@ a:active {
 
     &:not(div:first-child) {
       border-top: 1px solid black;
+    }
+
+    &:hover {
+      background-color: whitesmoke;
     }
   }
 }
