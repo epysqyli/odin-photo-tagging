@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Square from "../components/Square";
 
 const Picture = (props) => {
@@ -12,6 +12,35 @@ const Picture = (props) => {
       setShowMenu({ show: true, squareNumber });
     }
   };
+
+  const getData = async (apiUrl) => {
+    let resp = await fetch(apiUrl);
+    resp = await resp.json();
+    console.log(resp);
+  };
+
+  const sendChoice = async (apiUrl) => {
+    const token = document.querySelector('meta[name="csrf-token"]').content;
+    let resp = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "X-CSRF-TOKEN": token,
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ name: "Odlaw", position: 802 }),
+    });
+    resp = await resp.json();
+  };
+
+  // useEffect(() => {
+  //   const url = "/api/v1/characters/index";
+  //   getData(url);
+  // }, []);
+
+  useEffect(() => {
+    const url = "/api/v1/characters/check_move";
+    sendChoice(url);
+  });
 
   const { imagePath } = props;
 

@@ -104,7 +104,10 @@ a:active {
   .container {
     width: 98%;
     max-width: 1500px;
+    min-width: 1260px;
     min-height: 800px;
+    border: 10px solid white;
+    box-shadow: 0 0 5px 2px black;
     margin: auto;
     position: relative;
 
