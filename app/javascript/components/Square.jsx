@@ -6,7 +6,7 @@ const Square = (props) => {
 
   return (
     <div className="square" onClick={() => handleClick(index)}>
-      {showMenu.show && showMenu.squareNumber == index ? <Menu /> : ""}
+      {showMenu.show && showMenu.squareNumber == index ? <Menu /> : null}
     </div>
   );
 };
