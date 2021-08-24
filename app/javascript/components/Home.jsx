@@ -23,7 +23,7 @@ const Home = (props) => {
         </div>
       </div>
       <a className="btn" href={gamePath}>
-        your turn awaits: play now !
+        it is time to find them all: play now!
       </a>
     </div>
   );

@@ -5,9 +5,10 @@ const Picture = (props) => {
   const [dims, setDims] = useState({ width: null, height: null });
 
   useEffect(() => {
-    const container = [...document.getElementsByClassName("container")][0];
-    const width = container.clientWidth;
-    const height = container.clientHeight;
+    // const container = [...document.getElementsByClassName("container")][0];
+    const image = [...document.getElementsByTagName('img')][0];
+    const width = image.clientWidth;
+    const height = image.clientHeight;
     let newDims = { ...dims };
     newDims.width = width;
     newDims.height = height;
