@@ -127,17 +127,21 @@ a:active {
       position: absolute;
       top: 0;
       left: 0;
-      background-color: red;
       opacity: 0.5;
       z-index: 2;
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-around;
     }
   }
 }
 
 .square {
-  border: 1px solid black;
-  height: 7.5%;
-  width: 5%;
+  height: 3.35%;
+  width: 2.5%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: whitesmoke;
+  }
 }

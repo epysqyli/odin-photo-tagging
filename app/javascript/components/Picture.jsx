@@ -9,8 +9,8 @@ const Picture = (props) => {
       <div className="container">
         <img src={imagePath} alt="waldo picture" />
         <div className="squares-container">
-          {[...Array(260)].map((element, index) => {
-            return <Square key={index} />;
+          {[...Array(1160)].map((element, index) => {
+            return <Square key={index} index={index} />;
           })}
         </div>
       </div>
