@@ -5,6 +5,7 @@ const Picture = (props) => {
   const [showMenu, setShowMenu] = useState({ show: false, squareNumber: null });
 
   const handleClick = (squareNumber) => {
+    console.log(squareNumber);
     if (showMenu.show) {
       setShowMenu({ show: false, squareNumber });
     } else {
