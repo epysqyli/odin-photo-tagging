@@ -6,9 +6,12 @@ const Picture = (props) => {
   const [currentSquare, setCurrentSquare] = useState(null);
 
   const handleClick = (squareNumber) => {
-    console.log(squareNumber);
     setCurrentSquare(squareNumber);
-    setShowMenu({ show: true, squareNumber });
+    if (showMenu.show) {
+      setShowMenu({ show: false, squareNumber });
+    } else {
+      setShowMenu({ show: true, squareNumber });
+    }
   };
 
   const imagePath = props.imagePath;
