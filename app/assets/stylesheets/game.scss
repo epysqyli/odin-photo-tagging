@@ -175,9 +175,24 @@ a:active {
 }
 
 .found {
-  background-color: yellowgreen;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 5px;
+  border: 2px solid greenyellow;
+  box-shadow: 0 0 5px 2px green;
 }
 
 .not-found {
   background-color: white;
+  opacity: 0;
+  border-radius: 5px;
+  animation: fade-out 3000ms ease-in-out;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

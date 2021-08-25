@@ -17,12 +17,12 @@ const Square = (props) => {
 
   useEffect(() => {
     if (squares.length) {
-      const clicked = squares.filter((sqr) => sqr.pos);
-      clicked.forEach((sqr) => {
+      squares.forEach((sqr) => {
         if (sqr.pos == index) {
           setSquareClass(`square ${sqr.status}`);
         }
       });
+      // make not-found squares clickable again after 3000ms
     }
   }, [squares]);
 
