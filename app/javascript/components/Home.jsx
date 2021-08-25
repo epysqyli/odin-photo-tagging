@@ -18,7 +18,6 @@ const Home = (props) => {
           <h3>Odlaw |</h3>
           <h3>Wizard Whitebeard |</h3>
           <h3>Wenda |</h3>
-          <h3>Woof |</h3>
           <h3>Waldo</h3>
         </div>
       </div>
