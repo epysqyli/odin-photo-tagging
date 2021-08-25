@@ -12,7 +12,6 @@ const Picture = (props) => {
   const [foundChars, setFoundChars] = useState([]);
 
   const handleClick = (squareNumber) => {
-    console.log(squareNumber);
     if (showMenu.show) {
       setShowMenu({ show: false, squareNumber });
     } else {
@@ -32,10 +31,12 @@ const Picture = (props) => {
     });
     resp = await resp.json();
     console.log(resp);
-    setFoundChars([
-      ...foundChars,
-      resp.found_chars[resp.found_chars.length - 1],
-    ]);
+    if (resp.result === "found") {
+      setFoundChars([
+        ...foundChars,
+        resp.found_chars[resp.found_chars.length - 1],
+      ]);
+    }
   };
 
   const apiUrl = "/api/v1/characters/check_move";
@@ -45,7 +46,6 @@ const Picture = (props) => {
   // remove already found chars from the chars state
   useEffect(() => {
     if (foundChars.length) {
-      console.log(chars);
       const arrayFoundChars = foundChars.map((char) => char.name);
       const newChars = chars.filter((char) => !arrayFoundChars.includes(char));
       setChars(newChars);
