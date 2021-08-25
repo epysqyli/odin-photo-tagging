@@ -3,7 +3,12 @@ import Square from "../components/Square";
 
 const Picture = (props) => {
   const [showMenu, setShowMenu] = useState({ show: false, squareNumber: null });
-  const [chars, setChars] = useState(["Waldo", "Wenda", "Odlaw", "Wizard Whitebeard"]);
+  const [chars, setChars] = useState([
+    "Waldo",
+    "Wenda",
+    "Odlaw",
+    "Wizard Whitebeard",
+  ]);
   const [foundChars, setFoundChars] = useState([]);
 
   const handleClick = (squareNumber) => {
@@ -36,6 +41,16 @@ const Picture = (props) => {
   const apiUrl = "/api/v1/characters/check_move";
 
   const { imagePath } = props;
+
+  // remove already found chars from the chars state
+  useEffect(() => {
+    if (foundChars.length) {
+      console.log(chars);
+      const arrayFoundChars = foundChars.map((char) => char.name);
+      const newChars = chars.filter((char) => !arrayFoundChars.includes(char));
+      setChars(newChars);
+    }
+  }, [foundChars]);
 
   return (
     <div className="picture-container">
