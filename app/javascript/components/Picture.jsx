@@ -56,13 +56,16 @@ const Picture = (props) => {
     }
   };
 
-  // remove already found chars from the chars state
-  useEffect(() => {
+  const removeFoundChars = () => {
     if (foundChars.length) {
       const arrayFoundChars = foundChars.map((char) => char.name);
       const newChars = chars.filter((char) => !arrayFoundChars.includes(char));
       setChars(newChars);
     }
+  };
+
+  useEffect(() => {
+    removeFoundChars();
   }, [foundChars]);
 
   const { imagePath } = props;
