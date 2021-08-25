@@ -3,7 +3,6 @@ import Square from "../components/Square";
 
 const Picture = (props) => {
   const [showMenu, setShowMenu] = useState({ show: false, squareNumber: null });
-  const [sent, setSent] = useState(false);
 
   const handleClick = (squareNumber) => {
     console.log(squareNumber);
@@ -14,7 +13,7 @@ const Picture = (props) => {
     }
   };
 
-  const sendChoice = async (apiUrl) => {
+  const sendChoice = async (apiUrl, charName, charPos) => {
     const token = document.querySelector('meta[name="csrf-token"]').content;
     let resp = await fetch(apiUrl, {
       method: "POST",
@@ -22,35 +21,13 @@ const Picture = (props) => {
         "X-CSRF-TOKEN": token,
         "Content-type": "application/json",
       },
-      body: JSON.stringify({ name: "Odlaw", position: 802 }),
+      body: JSON.stringify({ name: charName, position: charPos }),
     });
     resp = await resp.json();
     console.log(resp);
   };
 
-  const sendChoiceTwo = async (apiUrl) => {
-    const token = document.querySelector('meta[name="csrf-token"]').content;
-    let resp = await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "X-CSRF-TOKEN": token,
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ name: "Waldo", position: 736 }),
-    });
-    resp = await resp.json();
-    console.log(resp);
-  };
-
-  useEffect(() => {
-    const url = "/api/v1/characters/check_move";
-    sendChoice(url);
-  }, []);
-
-  useEffect(() => {
-    const url = "/api/v1/characters/check_move";
-    sendChoiceTwo(url);
-  }, []);
+  const apiUrl = "/api/v1/characters/check_move";
 
   const { imagePath } = props;
 
@@ -66,6 +43,8 @@ const Picture = (props) => {
                 index={index}
                 handleClick={handleClick}
                 showMenu={showMenu}
+                sendChoice={sendChoice}
+                apiUrl={apiUrl}
               />
             );
           })}

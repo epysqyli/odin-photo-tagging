@@ -1,19 +1,19 @@
+# api controller - version 1
 class Api::V1::CharactersController < ApplicationController
   before_action :chars, only: :check_move
   @@found_chars = []
-
-  def index
-    @characters = Character.all
-    render json: @characters
-  end
 
   def check_move
     @player_choice = { name: params[:name], position: params[:position] }
     if @chars.include?(@player_choice)
       @@found_chars << @player_choice
-      render json: { message: 'great, you found one', found_chars: @@found_chars }
+      if @@found_chars.length < 4
+        render json: { message: 'Great, you found one', found_chars: @@found_chars }
+      else
+        render json: { message: 'You found them all!' }
+      end
     else
-      render json: { message: 'look again!' }
+      render json: { message: 'Look again!' }
     end
   end
 
