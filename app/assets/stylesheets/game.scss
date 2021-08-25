@@ -144,6 +144,7 @@ a:active {
   cursor: pointer;
   position: relative;
   border: 2px solid transparent;
+  border-radius: 5px;
 
   &:hover {
     border: 2px solid black;
@@ -185,7 +186,7 @@ a:active {
   background-color: white;
   opacity: 0;
   border-radius: 5px;
-  animation: fade-out 3000ms ease-in-out;
+  animation: fade-out 2500ms ease-in-out;
 }
 
 @keyframes fade-out {

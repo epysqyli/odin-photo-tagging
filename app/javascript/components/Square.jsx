@@ -15,6 +15,10 @@ const Square = (props) => {
     squares,
   } = props;
 
+  const restoreClass = () => {
+    setSquareClass("square");
+  };
+
   useEffect(() => {
     if (squares.length) {
       squares.forEach((sqr) => {
@@ -22,9 +26,15 @@ const Square = (props) => {
           setSquareClass(`square ${sqr.status}`);
         }
       });
-      // make not-found squares clickable again after 3000ms
     }
   }, [squares]);
+
+  // make not-found squares clickable again after 3000ms
+  useEffect(() => {
+    if (squareClass == "square not-found") {
+      setTimeout(restoreClass, 2500);
+    }
+  }, [squareClass]);
 
   return (
     <div className={squareClass} onClick={() => handleClick(index)}>
