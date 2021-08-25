@@ -10,6 +10,7 @@ const Picture = (props) => {
     "Wizard Whitebeard",
   ]);
   const [foundChars, setFoundChars] = useState([]);
+  const [squares, setSquares] = useState([]);
 
   const handleClick = (squareNumber) => {
     if (showMenu.show) {
@@ -30,13 +31,19 @@ const Picture = (props) => {
       body: JSON.stringify({ name: charName, position: charPos }),
     });
     resp = await resp.json();
-    console.log(resp);
+
+    // update found chars
     if (resp.result === "found") {
       setFoundChars([
         ...foundChars,
         resp.found_chars[resp.found_chars.length - 1],
       ]);
     }
+    console.log(resp);
+
+    // update squares status (found v not-found)
+    const square = { pos: charPos, status: resp.result };
+    setSquares([...squares, square]);
   };
 
   const apiUrl = "/api/v1/characters/check_move";
@@ -68,6 +75,7 @@ const Picture = (props) => {
                 apiUrl={apiUrl}
                 chars={chars}
                 foundChars={foundChars}
+                squares={squares}
               />
             );
           })}

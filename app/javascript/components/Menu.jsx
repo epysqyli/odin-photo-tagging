@@ -1,7 +1,7 @@
 import React from "react";
 
 const Menu = (props) => {
-  const { sendChoice, apiUrl, charPos, chars, foundChars } = props;
+  const { sendChoice, apiUrl, charPos, chars } = props;
 
   return (
     <div className="popup-menu">

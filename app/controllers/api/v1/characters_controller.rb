@@ -13,7 +13,7 @@ class Api::V1::CharactersController < ApplicationController
         render json: { message: 'You found them all!', result: 'found', found_chars: @@found_chars }
       end
     else
-      render json: { message: 'Look again!', result: 'not found' }
+      render json: { message: 'Look again!', result: 'not-found' }
     end
   end
 
