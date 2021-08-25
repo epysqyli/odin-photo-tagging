@@ -20,6 +20,8 @@ const Picture = (props) => {
     }
   };
 
+  const apiUrl = "/api/v1/characters/check_move";
+
   const sendChoice = async (apiUrl, charName, charPos) => {
     const token = document.querySelector('meta[name="csrf-token"]').content;
     let resp = await fetch(apiUrl, {
@@ -41,14 +43,18 @@ const Picture = (props) => {
     }
     console.log(resp);
 
-    // update squares status (found v not-found)
+    // state to update squares status (found v not-found)
     const square = { pos: charPos, status: resp.result };
     setSquares([...squares, square]);
   };
 
-  const apiUrl = "/api/v1/characters/check_move";
-
-  const { imagePath } = props;
+  // remove not-found status squares
+  const cleanSquares = () => {
+    if (squares.length) {
+      const onlyFound = squares.filter((s) => s.status == "found");
+      setSquares(onlyFound);
+    }
+  };
 
   // remove already found chars from the chars state
   useEffect(() => {
@@ -58,6 +64,8 @@ const Picture = (props) => {
       setChars(newChars);
     }
   }, [foundChars]);
+
+  const { imagePath } = props;
 
   return (
     <div className="picture-container">
@@ -76,6 +84,7 @@ const Picture = (props) => {
                 chars={chars}
                 foundChars={foundChars}
                 squares={squares}
+                cleanSquares={cleanSquares}
               />
             );
           })}
