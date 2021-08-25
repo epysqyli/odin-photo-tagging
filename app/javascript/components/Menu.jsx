@@ -1,34 +1,22 @@
 import React from "react";
 
 const Menu = (props) => {
-  const { sendChoice, apiUrl, charPos } = props;
+  const { sendChoice, apiUrl, charPos, chars, foundChars } = props;
 
+  // print chars who have not already been found
   return (
     <div className="popup-menu">
-      <div
-        className="character-name"
-        onClick={() => sendChoice(apiUrl, "Waldo", charPos)}
-      >
-        Waldo
-      </div>
-      <div
-        className="character-name"
-        onClick={() => sendChoice(apiUrl, "Wenda", charPos)}
-      >
-        Wenda
-      </div>
-      <div
-        className="character-name"
-        onClick={() => sendChoice(apiUrl, "Odlaw", charPos)}
-      >
-        Odlaw
-      </div>
-      <div
-        className="character-name"
-        onClick={() => sendChoice(apiUrl, "Wizard Whitebeard", charPos)}
-      >
-        Wizard Whitebeard
-      </div>
+      {chars.map((char, index) => {
+        return (
+          <div
+            className="character-name"
+            key={index}
+            onClick={() => sendChoice(apiUrl, char, charPos)}
+          >
+            {char}
+          </div>
+        );
+      })}
     </div>
   );
 };

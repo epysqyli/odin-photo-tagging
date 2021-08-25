@@ -3,6 +3,8 @@ import Square from "../components/Square";
 
 const Picture = (props) => {
   const [showMenu, setShowMenu] = useState({ show: false, squareNumber: null });
+  const [chars, setChars] = useState(["Waldo", "Wenda", "Odlaw", "Wizard Whitebeard"]);
+  const [foundChars, setFoundChars] = useState([]);
 
   const handleClick = (squareNumber) => {
     console.log(squareNumber);
@@ -25,6 +27,10 @@ const Picture = (props) => {
     });
     resp = await resp.json();
     console.log(resp);
+    setFoundChars([
+      ...foundChars,
+      resp.found_chars[resp.found_chars.length - 1],
+    ]);
   };
 
   const apiUrl = "/api/v1/characters/check_move";
@@ -45,6 +51,8 @@ const Picture = (props) => {
                 showMenu={showMenu}
                 sendChoice={sendChoice}
                 apiUrl={apiUrl}
+                chars={chars}
+                foundChars={foundChars}
               />
             );
           })}
