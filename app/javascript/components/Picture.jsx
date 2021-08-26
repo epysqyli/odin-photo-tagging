@@ -40,15 +40,20 @@ const Picture = (props) => {
   );
 
   // gameover has a form to send the winner name to post api
-  const handleForm = (e) => {
+  const handleChange = (e) => {
     const newWinnerName = e.target.value;
     setWinnerName(newWinnerName);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    sendWinner(winnerUrl, winnerName, counter);
+  };
+
   const gameOver = (
-    <form className="gameover">
+    <form className="gameover" onSubmit={handleSubmit}>
       <label htmlFor="winner">Your name</label>
-      <input type="text" id="winner" onChange={handleForm} />
+      <input type="text" id="winner" onChange={handleChange} />
       <div
         className="submit-btn"
         onClick={() => sendWinner(winnerUrl, winnerName, counter)}
@@ -57,6 +62,7 @@ const Picture = (props) => {
       </div>
     </form>
   );
+
   const winnerUrl = "/winners/create";
 
   const sendWinner = async (apiUrl, name, time) => {
