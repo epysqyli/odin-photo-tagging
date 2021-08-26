@@ -38,7 +38,13 @@ const Picture = (props) => {
   );
 
   // gameover has a form to send the winner name to post api
-  const gameOver = <div className="game-over">game over</div>;
+  const gameOver = (
+    <form className="gameover">
+      <label htmlFor="winner">Your name</label>
+      <input type="text" id="winner" />
+      <div className="submit-btn">Save your score!</div>
+    </form>
+  );
 
   const incrementCounter = () => {
     const newCounter = counter + 1;
