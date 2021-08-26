@@ -24,7 +24,7 @@ const Picture = (props) => {
   const apiUrl = "/api/v1/characters/check_move";
 
   const remainingChars = (
-    <div className="player-info">
+    <div>
       <div className="timer">{counter} seconds</div>
       <p className="chars-list">Remaining characters:</p>
       {chars.map((char, index) => {
@@ -129,7 +129,9 @@ const Picture = (props) => {
           })}
         </div>
       </div>
-      {chars.length ? remainingChars : gameOver}
+      <div className="player-info">
+        {chars.length ? remainingChars : gameOver}
+      </div>
     </div>
   );
 };
