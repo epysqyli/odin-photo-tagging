@@ -12,6 +12,7 @@ const Picture = (props) => {
   const [foundChars, setFoundChars] = useState([]);
   const [squares, setSquares] = useState([]);
   const [counter, setCounter] = useState(0);
+  const [winnerName, setWinnerName] = useState("");
 
   const { imagePath, winners } = props;
   const apiUrl = "/api/v1/characters/check_move";
@@ -39,13 +40,38 @@ const Picture = (props) => {
   );
 
   // gameover has a form to send the winner name to post api
+  const handleForm = (e) => {
+    const newWinnerName = e.target.value;
+    setWinnerName(newWinnerName);
+  };
+
   const gameOver = (
     <form className="gameover">
       <label htmlFor="winner">Your name</label>
-      <input type="text" id="winner" />
-      <div className="submit-btn">Save your score!</div>
+      <input type="text" id="winner" onChange={handleForm} />
+      <div
+        className="submit-btn"
+        onClick={() => sendWinner(winnerUrl, winnerName, counter)}
+      >
+        Save your score!
+      </div>
     </form>
   );
+  const winnerUrl = "/winners/create";
+
+  const sendWinner = async (apiUrl, name, time) => {
+    const token = document.querySelector('meta[name="csrf-token"]').content;
+    let resp = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "X-CSRF-TOKEN": token,
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ name: name, time: time }),
+    });
+    resp = await resp.json();
+    console.log(resp);
+  };
 
   const incrementCounter = () => {
     const newCounter = counter + 1;
