@@ -17,6 +17,12 @@ const Picture = (props) => {
   const [winnerName, setWinnerName] = useState("");
   const [winnersList, setWinnersList] = useState(winners);
 
+  const resetState = () => {
+    setChars(["Waldo", "Wenda", "Odlaw", "Wizard Whitebeard"]);
+    clearTimeout(incrementCounter);
+    setCounter(0);
+  };
+
   const apiUrl = "/api/v1/characters/check_move";
 
   const handleClick = (squareNumber) => {
@@ -57,7 +63,7 @@ const Picture = (props) => {
       <label htmlFor="winner">Your name</label>
       <input type="text" id="winner" onChange={handleChange} />
       <div
-        className="submit-btn"
+        className="right-btn"
         onClick={() => sendWinner(winnerUrl, winnerName, counter)}
       >
         Save your score!
@@ -135,6 +141,7 @@ const Picture = (props) => {
     }
   }, [foundChars]);
 
+  // refactor using setInterval?
   useEffect(() => {
     if (foundChars.length < 4) setTimeout(incrementCounter, 1000);
   }, [counter]);
@@ -176,6 +183,10 @@ const Picture = (props) => {
             );
           })}
         </div>
+        <div className="right-btn" onClick={resetState}>
+          play again
+        </div>
+        <div className="right-btn">go home</div>
       </div>
     </div>
   );
