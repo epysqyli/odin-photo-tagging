@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Square from "../components/Square";
 
 const Picture = (props) => {
-  const { imagePath, winners } = props;
+  const { imagePath, winners, rootPath } = props;
 
   const [showMenu, setShowMenu] = useState({ show: false, squareNumber: null });
   const [chars, setChars] = useState([
@@ -140,7 +140,6 @@ const Picture = (props) => {
     if (foundChars.length < 4) setTimeout(incrementCounter, 1000);
   }, [counter]);
 
-
   return (
     <div className="picture-container">
       <div className="container">
@@ -178,7 +177,7 @@ const Picture = (props) => {
             );
           })}
         </div>
-        <div className="right-btn">start again</div>
+        <a className="right-btn" href={rootPath}>start again</a>
       </div>
     </div>
   );
