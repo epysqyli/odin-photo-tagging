@@ -183,7 +183,8 @@ a:active {
 }
 
 .not-found {
-  background-color: white;
+  background-color: red;
+  border: 2px solid white;
   opacity: 0;
   border-radius: 5px;
   animation: fade-out 2500ms ease-in-out;

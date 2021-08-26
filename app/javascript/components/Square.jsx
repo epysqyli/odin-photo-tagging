@@ -30,7 +30,7 @@ const Square = (props) => {
     }
   }, [squares]);
 
-  // make not-found squares clickable again after 3000ms
+  // make not-found squares clickable again after 2500ms
   useEffect(() => {
     if (squareClass == "square not-found") {
       cleanSquares();

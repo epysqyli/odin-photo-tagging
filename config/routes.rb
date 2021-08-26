@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'winners/create'
   namespace :api do
     namespace :v1 do
       post 'characters/check_move'
