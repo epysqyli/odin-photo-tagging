@@ -145,6 +145,7 @@ a:active {
       padding: 1vh 2vw;
       width: 100%;
       margin-bottom: 5vh;
+      box-shadow: 0 0 5px 2px black;
 
       .timer {
         margin-bottom: 5vh;
@@ -185,6 +186,7 @@ a:active {
       max-height: 30vh;
       margin-bottom: 5vh;
       overflow-y: auto;
+      box-shadow: 0 0 5px 2px black;
 
       h2 {
         margin-bottom: 2vh;
