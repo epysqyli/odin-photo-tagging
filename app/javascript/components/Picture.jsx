@@ -72,10 +72,13 @@ const Picture = (props) => {
 
   useEffect(() => {
     removeFoundChars();
+    if (foundChars.length == 4) {
+      clearTimeout(incrementCounter);
+    }
   }, [foundChars]);
 
   useEffect(() => {
-    setTimeout(incrementCounter, 1000);
+    if (foundChars.length < 4) setTimeout(incrementCounter, 1000);
   }, [counter]);
 
   const { imagePath } = props;
@@ -105,9 +108,14 @@ const Picture = (props) => {
       </div>
       <div className="player-info">
         <div className="timer">{counter} seconds</div>
-        <div className="found-chars">
-          you have found: X <br />x to go
-        </div>
+        <p className="chars-list">Remaining characters:</p>
+        {chars.map((char, index) => {
+          return (
+            <p className="character" key={index}>
+              {char}
+            </p>
+          );
+        })}
       </div>
     </div>
   );

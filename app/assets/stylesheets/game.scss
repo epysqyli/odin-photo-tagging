@@ -136,9 +136,23 @@ a:active {
   .player-info {
     border: 10px solid white;
     padding: 1vh 2vw;
-    font-size: 2rem;
-    width: 15%;
+    font-size: 1.5rem;
+    width: 18%;
     color: white;
+
+    .timer {
+      margin-bottom: 5vh;
+    }
+
+
+    .chars-list {
+      margin-bottom: 2vh;
+
+    }
+    .character {
+      margin: 2vh auto;
+      border-bottom: 2px solid white;
+    }
   }
 }
 
