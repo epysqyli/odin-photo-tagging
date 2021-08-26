@@ -10,14 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_824_134_435) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+ActiveRecord::Schema.define(version: 2021_08_26_154612) do
 
-  create_table 'characters', force: :cascade do |t|
-    t.string 'name'
-    t.integer 'position'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
+
+  create_table "winners", force: :cascade do |t|
+    t.string "name"
+    t.integer "time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
 end
