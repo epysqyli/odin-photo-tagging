@@ -11,6 +11,7 @@ const Picture = (props) => {
   ]);
   const [foundChars, setFoundChars] = useState([]);
   const [squares, setSquares] = useState([]);
+  const [counter, setCounter] = useState(0);
 
   const handleClick = (squareNumber) => {
     if (showMenu.show) {
@@ -21,6 +22,11 @@ const Picture = (props) => {
   };
 
   const apiUrl = "/api/v1/characters/check_move";
+
+  const incrementCounter = () => {
+    const newCounter = counter + 1;
+    setCounter(newCounter);
+  };
 
   const sendChoice = async (apiUrl, charName, charPos) => {
     const token = document.querySelector('meta[name="csrf-token"]').content;
@@ -68,6 +74,10 @@ const Picture = (props) => {
     removeFoundChars();
   }, [foundChars]);
 
+  useEffect(() => {
+    setTimeout(incrementCounter, 1000);
+  }, [counter]);
+
   const { imagePath } = props;
 
   return (
@@ -91,6 +101,12 @@ const Picture = (props) => {
               />
             );
           })}
+        </div>
+      </div>
+      <div className="player-info">
+        <div className="timer">{counter} seconds</div>
+        <div className="found-chars">
+          you have found: X <br />x to go
         </div>
       </div>
     </div>

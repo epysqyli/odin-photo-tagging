@@ -92,8 +92,10 @@ a:active {
 
 // game#play
 .picture-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
   padding-top: 2.5vh;
-  padding-left: 1vw;
   min-height: 100vh;
   background: linear-gradient(
     310deg,
@@ -129,6 +131,14 @@ a:active {
       flex-wrap: wrap;
       justify-content: space-around;
     }
+  }
+
+  .player-info {
+    border: 10px solid white;
+    padding: 1vh 2vw;
+    font-size: 2rem;
+    width: 15%;
+    color: white;
   }
 }
 
