@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Square from "../components/Square";
 
 const Picture = (props) => {
+  const { imagePath, winners } = props;
+
   const [showMenu, setShowMenu] = useState({ show: false, squareNumber: null });
   const [chars, setChars] = useState([
     "Waldo",
@@ -13,8 +15,8 @@ const Picture = (props) => {
   const [squares, setSquares] = useState([]);
   const [counter, setCounter] = useState(0);
   const [winnerName, setWinnerName] = useState("");
+  const [winnersList, setWinnersList] = useState(winners);
 
-  const { imagePath, winners } = props;
   const apiUrl = "/api/v1/characters/check_move";
 
   const handleClick = (squareNumber) => {
@@ -76,7 +78,7 @@ const Picture = (props) => {
       body: JSON.stringify({ name: name, time: time }),
     });
     resp = await resp.json();
-    console.log(resp);
+    setWinnersList(resp);
   };
 
   const incrementCounter = () => {
@@ -166,7 +168,7 @@ const Picture = (props) => {
         </div>
         <div className="leaderboard">
           <h2>Leaderboard</h2>
-          {winners.map((winner) => {
+          {winnersList.map((winner) => {
             return (
               <p className="winner" key={winner.id}>
                 {winner.name}: {winner.time} sec
