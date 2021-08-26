@@ -133,64 +133,73 @@ a:active {
     }
   }
 
-  .player-info {
-    border: 10px solid white;
-    padding: 1vh 2vw;
-    font-size: 1.5rem;
+  .right-side {
     width: 18%;
     color: white;
+    font-size: 1.5rem;
+    text-align: center;
 
-    .timer {
-      margin-bottom: 5vh;
-      text-align: center;
-    }
+    .player-info {
+      border: 10px solid white;
+      padding: 1vh 2vw;
+      width: 100%;
+      margin-bottom: 10vh;
 
-    .chars-list {
-      margin-bottom: 2vh;
-      text-align: center;
-    }
-    .character {
-      margin: 2vh auto;
-      border-bottom: 2px solid white;
-      text-align: center;
-    }
-
-    .gameover {
-      label {
-        display: block;
-        text-align: center;
-        margin-bottom: 1vh;
+      .timer {
+        margin-bottom: 5vh;
       }
 
-      input {
-        font-size: 1.25rem;
-        text-align: center;
-        border: none;
-        padding: 10px;
-        width: 100%;
+      .chars-list {
         margin-bottom: 2vh;
-
-        &:focus {
-          outline: none;
-        }
-
       }
-      .submit-btn {
-        font-size: 1.25rem;
-        text-align: center;
-        cursor: pointer;
-        padding: 10px;
-        border: 2px solid white;
+      .character {
+        margin: 2vh auto;
+        border-bottom: 2px solid white;
+      }
 
-        &:hover {
-          background-color: rgba(0, 139, 139, 0.5);
+      .gameover {
+        label {
+          display: block;
+          margin-bottom: 1vh;
         }
 
-        &:active {
-          background-color: white;
-          color: black;
-          border: 2px solid darkcyan;
+        input {
+          font-size: 1.25rem;
+          border: none;
+          padding: 10px;
+          width: 100%;
+          margin-bottom: 2vh;
+
+          &:focus {
+            outline: none;
+          }
         }
+        .submit-btn {
+          font-size: 1.25rem;
+          cursor: pointer;
+          padding: 10px;
+          border: 2px solid white;
+
+          &:hover {
+            background-color: rgba(0, 139, 139, 0.5);
+          }
+
+          &:active {
+            background-color: white;
+            color: black;
+            border: 2px solid darkcyan;
+          }
+        }
+      }
+    }
+
+    .leaderboard {
+      border: 10px solid white;
+      padding: 2vh 0;
+      width: 100%;
+
+      h2 {
+        margin-bottom: 2vh;
       }
     }
   }

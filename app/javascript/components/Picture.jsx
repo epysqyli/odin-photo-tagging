@@ -13,6 +13,9 @@ const Picture = (props) => {
   const [squares, setSquares] = useState([]);
   const [counter, setCounter] = useState(0);
 
+  const { imagePath, winners } = props;
+  const apiUrl = "/api/v1/characters/check_move";
+
   const handleClick = (squareNumber) => {
     if (showMenu.show) {
       setShowMenu({ show: false, squareNumber });
@@ -21,7 +24,15 @@ const Picture = (props) => {
     }
   };
 
-  const apiUrl = "/api/v1/characters/check_move";
+  const leaderBoard = (
+    <div className="leaderboard">
+      {winners.map((winner) => {
+        <p className="winner">
+          {winner.name}: {winner.time}
+        </p>;
+      })}
+    </div>
+  );
 
   const remainingChars = (
     <div>
@@ -104,8 +115,6 @@ const Picture = (props) => {
     if (foundChars.length < 4) setTimeout(incrementCounter, 1000);
   }, [counter]);
 
-  const { imagePath } = props;
-
   return (
     <div className="picture-container">
       <div className="container">
@@ -129,8 +138,20 @@ const Picture = (props) => {
           })}
         </div>
       </div>
-      <div className="player-info">
-        {chars.length ? remainingChars : gameOver}
+      <div className="right-side">
+        <div className="player-info">
+          {chars.length ? remainingChars : gameOver}
+        </div>
+        <div className="leaderboard">
+          <h2>Leaderboard</h2>
+          {winners.map((winner) => {
+            return (
+              <p className="winner" key={winner.id}>
+                {winner.name}: {winner.time} sec
+              </p>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
