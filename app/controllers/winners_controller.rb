@@ -11,6 +11,6 @@ class WinnersController < ApplicationController
   private
 
   def winner_params
-    params.permit(:name, :time)
+    params.require(:winner).permit(:name, :time)
   end
 end
