@@ -24,16 +24,6 @@ const Picture = (props) => {
     }
   };
 
-  const leaderBoard = (
-    <div className="leaderboard">
-      {winners.map((winner) => {
-        <p className="winner">
-          {winner.name}: {winner.time}
-        </p>;
-      })}
-    </div>
-  );
-
   const remainingChars = (
     <div>
       <div className="timer">{counter} seconds</div>
