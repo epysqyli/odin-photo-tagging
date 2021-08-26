@@ -23,6 +23,23 @@ const Picture = (props) => {
 
   const apiUrl = "/api/v1/characters/check_move";
 
+  const remainingChars = (
+    <div className="player-info">
+      <div className="timer">{counter} seconds</div>
+      <p className="chars-list">Remaining characters:</p>
+      {chars.map((char, index) => {
+        return (
+          <p className="character" key={index}>
+            {char}
+          </p>
+        );
+      })}
+    </div>
+  );
+
+  // gameover has a form to send the winner name to post api
+  const gameOver = <div className="game-over">game over</div>;
+
   const incrementCounter = () => {
     const newCounter = counter + 1;
     setCounter(newCounter);
@@ -106,17 +123,7 @@ const Picture = (props) => {
           })}
         </div>
       </div>
-      <div className="player-info">
-        <div className="timer">{counter} seconds</div>
-        <p className="chars-list">Remaining characters:</p>
-        {chars.map((char, index) => {
-          return (
-            <p className="character" key={index}>
-              {char}
-            </p>
-          );
-        })}
-      </div>
+      {chars.length ? remainingChars : gameOver}
     </div>
   );
 };
