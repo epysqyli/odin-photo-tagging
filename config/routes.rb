@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get 'winners/create'
+  root 'game#home'
+  get 'game/play', to: 'game#play'
+
   namespace :api do
     namespace :v1 do
       post 'characters/check_move'
+      post 'winners/create'
     end
   end
-  root 'game#home'
-  get 'game/play', to: 'game#play'
 end
