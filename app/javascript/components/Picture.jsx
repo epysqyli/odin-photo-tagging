@@ -19,6 +19,11 @@ const Picture = (props) => {
 
   const apiUrl = "/api/v1/characters/check_move";
 
+  const resetStates = () => {
+    setChars(["Waldo", "Wenda", "Odlaw", "Wizard Whitebeard"]);
+    setCounter(0);
+  };
+
   const handleClick = (squareNumber) => {
     if (showMenu.show) {
       setShowMenu({ show: false, squareNumber });
@@ -79,6 +84,8 @@ const Picture = (props) => {
     });
     resp = await resp.json();
     setWinnersList(resp);
+    document.getElementById("winner").value = "";
+    resetStates();
   };
 
   const incrementCounter = () => {
@@ -105,7 +112,6 @@ const Picture = (props) => {
         resp.found_chars[resp.found_chars.length - 1],
       ]);
     }
-    console.log(resp);
 
     // state to update squares status (found v not-found)
     const square = { pos: charPos, status: resp.result };
@@ -135,7 +141,6 @@ const Picture = (props) => {
     }
   }, [foundChars]);
 
-  // refactor using setInterval?
   useEffect(() => {
     if (foundChars.length < 4) setTimeout(incrementCounter, 1000);
   }, [counter]);
@@ -177,7 +182,9 @@ const Picture = (props) => {
             );
           })}
         </div>
-        <a className="right-btn" href={rootPath}>start again</a>
+        <a className="right-btn" href={rootPath}>
+          start again
+        </a>
       </div>
     </div>
   );
